@@ -1,0 +1,230 @@
+/* Memory Card Game Premium Styles */
+:root {
+    --bg-gradient-start: #1f1f1f;
+    --bg-gradient-end: #3a3a3a;
+    --card-width: 90px;
+    --card-height: 120px;
+    --card-border-radius: 12px;
+    --card-shadow: rgba(0, 0, 0, 0.3);
+    --card-back-color: #2c2c2c;
+    --card-front-color: #ffffff;
+    --matched-border-color: #ffd700;
+    --accent-color: #ffb400;
+    --font-color: #f0f0f0;
+    --header-font-size: 1.8rem;
+    --button-bg: #ffb400;
+    --button-bg-hover: #e09e00;
+    --button-color: #1f1f1f;
+    --button-radius: 8px;
+    --transition-speed: 0.4s;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+    color: var(--font-color);
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    width: 100%;
+    max-width: calc(var(--card-width) * 4 + 3rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem;
+    transition: transform 0.2s ease-out;
+}
+
+/* Floating effect on slight scroll */
+body:hover main {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 1.5rem;
+}
+
+h1 {
+    font-size: var(--header-font-size);
+    font-weight: 600;
+    color: var(--font-color);
+    margin: 0;
+}
+
+.game-stats {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--accent-color);
+}
+
+.game-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 0.8rem;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.card {
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: var(--card-width);
+    height: var(--card-height);
+    text-align: center;
+    transition: transform var(--transition-speed);
+    transform-style: preserve-3d;
+    cursor: pointer;
+    border-radius: var(--card-border-radius);
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    border-radius: var(--card-border-radius);
+}
+
+.card-back {
+    background-color: var(--card-back-color);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 8px var(--card-shadow);
+    color: rgba(255, 255, 255, 0.3);
+    transform: rotateY(0deg);
+}
+
+.card-front {
+    background-color: var(--card-front-color);
+    border: 2px solid rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px var(--card-shadow);
+    transform: rotateY(180deg);
+    color: #333333;
+}
+
+.card.matched .card-inner {
+    box-shadow: 0 0 0 4px var(--matched-border-color);
+    cursor: default;
+}
+
+.card:not(.flipped) .card-inner {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:not(.flipped):hover .card-inner {
+    transform: scale(1.05);
+}
+
+.card:not(.flipped):hover .card-front,
+.card:not(.flipped):hover .card-back {
+    box-shadow: 0 6px 12px var(--card-shadow);
+}
+
+#restart-btn {
+    padding: 0.5rem 0.8rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background-color: var(--button-bg);
+    color: var(--button-color);
+    border: none;
+    border-radius: var(--button-radius);
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+    font-family: 'Poppins', sans-serif;
+}
+
+#restart-btn:hover {
+    background-color: var(--button-bg-hover);
+}
+
+/* Responsive styles */
+@media (max-width: 600px) {
+    :root {
+        --card-width: 70px;
+        --card-height: 90px;
+    }
+    
+    main {
+        max-width: calc(var(--card-width) * 4 + 1.5rem);
+        padding: 0.8rem;
+    }
+    
+    .game-container {
+        grid-gap: 0.5rem;
+    }
+    
+    header {
+        flex-direction: row;
+        gap: 0.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    h1 {
+        font-size: 1.2rem;
+    }
+    
+    .card-front {
+        font-size: 1.3rem;
+    }
+    
+    .card-back {
+        font-size: 1rem;
+    }
+    
+    .game-stats {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    #restart-btn {
+        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem;
+    }
+}
