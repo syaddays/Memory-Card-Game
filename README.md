@@ -14,7 +14,7 @@ A modern, interactive memory card game built with HTML, CSS, and JavaScript. Tes
 
 ## 🚀 Demo
 
-[Add your live demo link here]https://68449c5fa590ccd0b05d0947--peaceful-clafoutis-a5beb3.netlify.app/
+[[Live link](https://68449c5fa590ccd0b05d0947--peaceful-clafoutis-a5beb3.netlify.app/)]
 
 ![memeory_card_game](https://github.com/user-attachments/assets/a840f0f5-3126-4d6f-be05-b318c5e18f4b)
 
