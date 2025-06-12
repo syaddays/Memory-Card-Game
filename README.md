@@ -65,12 +65,6 @@ Contributions, issues, and feature requests are welcome! Feel free to check the 
 
 This project is open source and available under the [MIT License](add_license_link_here).
 
-## 👨‍💻 Author
-
-[Your Name]
-- GitHub: [@yourusername](add_github_profile_link)
-- LinkedIn: [Your Name](add_linkedin_profile_link)
-
 ## ⭐ Show your support
 
 Give a ⭐️ if you like this project!
